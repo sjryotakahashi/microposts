@@ -4,6 +4,14 @@
     <%= @user.name %>
   </h1>
 </section>
+
+<p><%= "ユーザー名: " + @user.name %></p>
+<% if @user == current_user %>
+<p><%= "メールアドレス: " + @user.email %></p>
+<% end %>
+<p>ロケーション: <%= @user.location.present? ? @user.location : "(設定されていません)"%></p>
+
 <p><%= link_to "userpage", @user %> | 
 <%= link_to "followings", followings_user_path(@user) %> | 
 <%= link_to "Followers", followers_user_path(@user) %></p>
+
